@@ -1,0 +1,56 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# jpmap
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+jpmap provides geometry data of Japanese prefectures and layout functions in 
+ggplot2.
+The prefecture data in jpmap is based on the data provided by mapdata package.
+
+## Installation
+
+You can install the development version of jpmap from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("UchidaMizuki/jpmap")
+```
+
+## Example
+
+`prefecture` contains geometry (sf) data of Japanese prefectures.
+
+```{r, message=FALSE}
+library(jpmap)
+library(tidyverse)
+library(sf)
+
+prefecture
+```
+
+`layout_islands()` improves the layout of the Japanese islands in ggplot2 plots.
+
+```{r}
+plot <- ggplot(prefecture) +
+  geom_sf()
+
+plot
+layout_islands(plot)
+layout_islands(plot,
+               ogasawara = FALSE)
+```

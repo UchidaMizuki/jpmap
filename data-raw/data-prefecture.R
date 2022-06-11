@@ -20,6 +20,7 @@ prefecture <- maps::map("japan",
                         plot = FALSE,
                         fill = TRUE) |>
   st_as_sf() |>
+  st_make_valid() |>
 
   # https://github.com/r-spatial/sf/issues/951
   as_tibble() |>
