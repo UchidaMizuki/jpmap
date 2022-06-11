@@ -26,7 +26,8 @@ layout_islands <- function(plot,
       coord_sf(xlim = xlim_ryukyu,
                ylim = ylim_ryukyu) +
       theme_void() +
-      theme(rect = element_rect(fill = "transparent"))
+      theme(rect = element_rect(fill = "transparent"),
+            legend.position = "none")
 
     japan <- japan +
       ggpp::annotate("plot_npc",
@@ -43,7 +44,8 @@ layout_islands <- function(plot,
       coord_sf(xlim = xlim_ogasawara,
                ylim = ylim_ogasawara) +
       theme_void() +
-      theme(rect = element_rect(fill = "transparent"))
+      theme(rect = element_rect(fill = "transparent"),
+            legend.position = "none")
 
     japan <- japan +
       ggpp::annotate("plot_npc",
