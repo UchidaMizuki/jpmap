@@ -18,6 +18,13 @@ layout_islands <- function(plot,
     coord_sf(xlim = xlim_japan,
              ylim = ylim_japan)
 
+  theme_inset <- list(theme_void(),
+                      theme(line = element_blank(),
+                            rect = element_rect(fill = "transparent"),
+                            text = element_blank(),
+                            title = element_blank(),
+                            legend.position = "none"))
+
   if (ryukyu) {
     xlim_ryukyu <- c(122, 132)
     ylim_ryukyu <- c(23, 30)
@@ -25,15 +32,14 @@ layout_islands <- function(plot,
     ryukyu <- plot +
       coord_sf(xlim = xlim_ryukyu,
                ylim = ylim_ryukyu) +
-      theme_void() +
-      theme(rect = element_rect(fill = "transparent"),
-            legend.position = "none")
+      theme_inset
+    ryukyu <- facet_data(ryukyu)
 
     japan <- japan +
-      ggpp::annotate("plot_npc",
-                     npcx = "left",
-                     npcy = "top",
-                     label = ryukyu)
+      ggpp::geom_plot_npc(data = ryukyu,
+                          aes(label = .data$.rows),
+                          npcx = "left",
+                          npcy = "top")
   }
 
   if (ogasawara) {
@@ -43,15 +49,14 @@ layout_islands <- function(plot,
     ogasawara <- plot +
       coord_sf(xlim = xlim_ogasawara,
                ylim = ylim_ogasawara) +
-      theme_void() +
-      theme(rect = element_rect(fill = "transparent"),
-            legend.position = "none")
+      theme_inset
+    ogasawara <- facet_data(ogasawara)
 
     japan <- japan +
-      ggpp::annotate("plot_npc",
-                     npcx = "right",
-                     npcy = "bottom",
-                     label = ogasawara)
+      ggpp::geom_plot_npc(data = ogasawara,
+                          aes(label = .data$.rows),
+                          npcx = "right",
+                          npcy = "bottom")
   }
   japan
 }

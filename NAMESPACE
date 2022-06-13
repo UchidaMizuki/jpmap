@@ -2,4 +2,6 @@
 
 export(layout_islands)
 import(ggplot2)
+import(rlang)
 import(sf)
+import(vctrs)
