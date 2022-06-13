@@ -88,7 +88,8 @@ plot <- ggplot(data,
   scale_fill_viridis_c(option = "turbo") +
   facet_wrap(~ group)
 
-layout_islands(plot)
+layout_islands(plot) +
+  theme(legend.position = "bottom")
 ```
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />

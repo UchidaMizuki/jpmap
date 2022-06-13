@@ -18,12 +18,13 @@ layout_islands <- function(plot,
     coord_sf(xlim = xlim_japan,
              ylim = ylim_japan)
 
-  theme_inset <- list(theme_void(),
-                      theme(line = element_blank(),
-                            rect = element_rect(fill = "transparent"),
-                            text = element_blank(),
-                            title = element_blank(),
-                            legend.position = "none"))
+  theme_inset <- theme_void() +
+    theme(line = element_blank(),
+          rect = element_rect(fill = "transparent",
+                              color = "dimgray"),
+          text = element_blank(),
+          title = element_blank(),
+          legend.position = "none")
 
   if (ryukyu) {
     xlim_ryukyu <- c(122, 132)
