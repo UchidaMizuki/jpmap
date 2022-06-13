@@ -54,3 +54,22 @@ layout_islands(plot)
 layout_islands(plot,
                ogasawara = FALSE)
 ```
+
+```{r, include=FALSE}
+set.seed(1234)
+```
+
+```{r}
+data <- prefecture |> 
+  expand_grid(group = 1:2) |> 
+  st_as_sf() |> 
+  mutate(value = rnorm(n()))
+
+plot <- ggplot(data,
+               aes(fill = value)) +
+  geom_sf() +
+  scale_fill_viridis_c(option = "turbo") +
+  facet_wrap(~ group)
+
+layout_islands(plot)
+```

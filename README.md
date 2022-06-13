@@ -75,3 +75,20 @@ layout_islands(plot,
 ```
 
 <img src="man/figures/README-unnamed-chunk-3-3.png" width="100%" />
+
+``` r
+data <- prefecture |> 
+  expand_grid(group = 1:2) |> 
+  st_as_sf() |> 
+  mutate(value = rnorm(n()))
+
+plot <- ggplot(data,
+               aes(fill = value)) +
+  geom_sf() +
+  scale_fill_viridis_c(option = "turbo") +
+  facet_wrap(~ group)
+
+layout_islands(plot)
+```
+
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
