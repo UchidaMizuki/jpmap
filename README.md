@@ -84,7 +84,7 @@ data <- prefecture |>
 
 plot <- ggplot(data,
                aes(fill = value)) +
-  geom_sf() +
+  geom_sf(color = "transparent") +
   scale_fill_viridis_c(option = "turbo") +
   facet_wrap(~ group)
 
