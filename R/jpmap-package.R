@@ -1,5 +1,4 @@
 #' @import rlang
 #' @import vctrs
-#' @import ggplot2
-#' @import sf
+#' @importFrom pillar tbl_sum
 NULL
