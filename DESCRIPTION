@@ -18,22 +18,9 @@ Depends:
     R (>= 2.10)
 RoxygenNote: 7.2.2
 Imports: 
-    dplyr,
-    fs,
     ggplot2,
     ggpp,
-    glue,
-    magick,
-    maptiles,
     pillar,
-    progress,
     purrr,
     rlang,
-    sf,
-    slippymath,
-    stickyr,
-    stringr,
-    terra,
-    tibble,
-    vctrs,
-    xml2
+    vctrs
