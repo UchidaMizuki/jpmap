@@ -1,4 +1,4 @@
-#' Lay out the Japanese Islands
+#' Lay out the Japanese prefectures
 #'
 #' @param plot A plot of ggplot2.
 #' @param ryukyu Include the Ryukyu Islands in the map? By default, `TRUE`.
@@ -8,9 +8,9 @@
 #' @return A plot of ggplot2.
 #'
 #' @export
-layout_islands <- function(plot,
-                           ryukyu = TRUE,
-                           ogasawara = TRUE) {
+layout_japan <- function(plot,
+                         ryukyu = TRUE,
+                         ogasawara = TRUE) {
   xlim_japan <- c(128, 150)
   ylim_japan <- c(30, 46)
 
