@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# jpmap
+# jpmap <img src="man/figures/logo.png" align="right" height="139" />
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -43,16 +43,16 @@ library(sf)
 prefecture
 ```
 
-`layout_islands()` improves the layout of the Japanese islands in ggplot2 plots.
+`layout_japan()` improves the layout of the Japanese islands in ggplot2 plots.
 
 ```{r}
 plot <- ggplot(prefecture) +
   geom_sf()
 
 plot
-layout_islands(plot)
-layout_islands(plot,
-               ogasawara = FALSE)
+layout_japan(plot)
+layout_japan(plot,
+             ogasawara = FALSE)
 ```
 
 ```{r, include=FALSE}
@@ -63,14 +63,15 @@ set.seed(1234)
 data <- prefecture |> 
   expand_grid(group = 1:2) |> 
   st_as_sf() |> 
-  mutate(value = rnorm(n()))
+  mutate(fill = case_when(group == 1 ~ pref_code,
+                          group == 2 ~ 47L - pref_code + 1L))
 
 plot <- ggplot(data,
-               aes(fill = value)) +
+               aes(fill = fill)) +
   geom_sf(color = "transparent") +
   scale_fill_viridis_c(option = "turbo") +
   facet_wrap(~ group)
 
-layout_islands(plot) +
+layout_japan(plot) +
   theme(legend.position = "bottom")
 ```
